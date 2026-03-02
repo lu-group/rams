@@ -1,0 +1,74 @@
+# ----- Python -----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ----- 虚拟环境 -----
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# ----- IDE -----
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ----- 操作系统 -----
+.DS_Store
+.DS_Store?
+Thumbs.db
+ehthumbs.db
+
+# ----- Jupyter -----
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ----- 日志与缓存 -----
+*.log
+.cache/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# ----- 模型与结果输出（按需取消注释） -----
+# *.pt
+# *.pth
+# *.ckpt
+# results/
+# *_results/
+# outputs/
+
+# ----- 数据文件（若为生成数据可取消注释） -----
+# *.csv
+# *.h5
+# *.hdf5
+# *.npy
+# *.npz
+
+# ----- 环境变量与密钥 -----
+.env
+.env.local
+*.pem

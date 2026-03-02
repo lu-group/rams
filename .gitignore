@@ -19,8 +19,6 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-
-# ----- 虚拟环境 -----
 venv/
 .venv/
 env/
@@ -34,7 +32,7 @@ ENV/
 *.swo
 *~
 
-# ----- 操作系统 -----
+# ----- OS -----
 .DS_Store
 .DS_Store?
 Thumbs.db
@@ -44,7 +42,7 @@ ehthumbs.db
 .ipynb_checkpoints/
 *.ipynb_checkpoints
 
-# ----- 日志与缓存 -----
+# ----- log -----
 *.log
 .cache/
 .pytest_cache/
@@ -53,22 +51,8 @@ htmlcov/
 .mypy_cache/
 .ruff_cache/
 
-# ----- 模型与结果输出（按需取消注释） -----
-# *.pt
-# *.pth
-# *.ckpt
-# results/
-# *_results/
-# outputs/
 
-# ----- 数据文件（若为生成数据可取消注释） -----
-# *.csv
-# *.h5
-# *.hdf5
-# *.npy
-# *.npz
-
-# ----- 环境变量与密钥 -----
+# ----- env -----
 .env
 .env.local
 *.pem

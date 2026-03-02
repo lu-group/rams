@@ -9,13 +9,6 @@ class Loss_Random(LossBase):
     def __init__(self, device, max_epochs, initial_sampling_info, sample_update_interval, proj_l=0.3, n_x=100, n_y=100,
                  is_net_transformed=True, is_trainable=False, training_sample_info=None, is_visualized=False, k_min=0.5, b=0.3, k_max=1,
                  resampling_collocation_interval=2500):
-        #######################################################################
-        # param net: The network to be trained with the input [x, y] and the output [w] (w: the deflection)
-        # model: The model information
-        # sample_num ([nD, nBC1, nBC2, nBC3, nBC4]): The number of sampling points at different regions;
-        # nD is the sampling number for the domain D, nBCi is the sampling number for the boundary i
-        # sampling_method: The sampling method used in the loss function
-        #######################################################################
         super().__init__()
         self.n_x = n_x
         self.n_y = n_y
@@ -45,10 +38,6 @@ class Loss_Random(LossBase):
         self.is_visualized = is_visualized
         self.init_samplingpoints(self.initial_sampling_info)
         self.resampling_collocation_interval = resampling_collocation_interval
-        # xi = torch.linspace(0, 1, 100).to(self.device)
-        # x_diff = xi[:, None] - xi[None, :]
-        # sigma = self.proj_l
-        # self.kernel_matrix = torch.exp(-0.5 * (x_diff ** 2) / sigma ** 2)
 
     def get_k(self, trunk_input, is_retain_graph=False):
         k_max = self.k_max
@@ -112,8 +101,6 @@ class Loss_Random(LossBase):
         return f
 
     def update_losses(self, net, epoch):
-        # if epoch % 2500 == 0 and epoch < self.max_epochs:
-        #     self.update_trunk_input(self.branch_input)
         if self.is_trainable and epoch % self.train_sample_interval == 0 and epoch > 0 and self.current_epoch <= self.max_epochs:
             self.update_samples(net)
         elif epoch % 2500 == 0 and epoch < self.max_epochs:

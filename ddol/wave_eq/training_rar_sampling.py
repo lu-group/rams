@@ -12,38 +12,7 @@ from src.network.deeponet import DeepONet
 from training import creatDataSet, get_predict
 from phy_loss import PhyLoss as PhyLoss_Vanilla
 from phy_loss_trainable import PhyLoss_Trainable
-# class creatDataSet(Dataset):
-#     def __init__(self, data_path, sample_name, sample_num=None, trunk_sample_num=None,
-#                  branch_input_min=None, branch_input_max=None,
-#                  trunk_input_min=None, trunk_input_max=None,
-#                  output_min=None, output_max=None, device=None):
-#         if device is None:
-#             device = 'cuda' if torch.cuda.is_available() else 'cpu'
-#
-#         # Load data from .npz file
-#         dataset = np.load(data_path + sample_name + ".npz")
-#         branch_input = dataset["branch_input"][:sample_num,:]
-#         trunk_input = dataset["trunk_input"]
-#         label = dataset["results"][:sample_num,:]
-#         self.node = dataset["node"] # This is the node locations for resampling in the propsoed method
-#         self.branch_input = torch.tensor(branch_input, dtype=torch.float32).to(device)
-#         self.trunk_input = torch.tensor(trunk_input, dtype=torch.float32).to(device)
-#         self.label = torch.tensor(label, dtype=torch.float32).to(device)
-#
-#     def __getitem__(self, idx):
-#         # idx is the index of the branch input data
-#         # return: the branch input tensor; the trunk input tensor; the label tensor
-#         return self.branch_input[idx], self.label[idx]
-#         # return self.branch_input_tensor[idx], self.label_tensor[idx * self.trunk_sample_num: (idx + 1) * self.trunk_sample_num], self.label_norm[idx]
-#
-#     def __len__(self):
-#         return self.branch_input.size(0)
-#
-# def get_predict(net, branch_input, trunk_input):
-#     branch_output = net.branch_net(branch_input)
-#     trunk_output = net.trunk_net(trunk_input)
-#     pred = torch.matmul(branch_output, trunk_output.T)
-#     return pred
+
 
 def train(net, batch_size, max_epoch, TOL, data_path, training_sample_name, test_sample_name,
           model_path, model_name, sample_num, device=None, lr=0.001, weight_decay=0, early_stopping_epoch=500,
@@ -214,47 +183,4 @@ def run(sample_num=50):
 
 if __name__ == '__main__':
     run()
-    # project_path = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
-    # data_path = r"datasets\\"
-    # model_path = r"nnmodels_50sam\\"
-    # import os
-    # if not os.path.exists(model_path):
-    #     os.makedirs(model_path)
-    # if not os.path.exists(data_path):
-    #     os.makedirs(data_path)
-    # training_sample_name = "training_dataset2"
-    # test_sample_name = "validation_dataset2"
-    # batch_size = 16
-    # TOL = 1e-9
-    #
-    # width = 100
-    # depth = 4
-    # bracnh_input_size = 201
-    # branch_depth = depth
-    # branch_hidden_size = width
-    # branch_output_size = width
-    # trunk_input_size = 2
-    # trunk_depth = depth
-    # trunk_hidden_size = width
-    # trunk_output_size = width
-    # act_fn = torch.nn.Tanh()
-    # branchinfo = {'act_fn': [act_fn] * branch_hidden_size, 'input_size': bracnh_input_size,
-    #               'output_size': branch_output_size, 'hidden_sizes': [branch_hidden_size] * branch_depth}
-    # trunkinfo = {'act_fn': [act_fn] * trunk_hidden_size, 'input_size': trunk_input_size,
-    #              'output_size': trunk_output_size, 'hidden_sizes': [trunk_hidden_size] * trunk_depth}
-    # channel_size = [branch_output_size]
-    #
-    # rar_update_info = {'start_epoch': 5000, 'interval': 5000, 'num': 10, 'update_time': 2}
-    # # PhyLoss = PhyLoss_Vanilla
-    # PhyLoss = PhyLoss_Trainable
-    # for i in range(3):
-    #     for sampling_iter in [0,100,200,300,400]:
-    #         net = DeepONet(branchinfo, trunkinfo, channel_size)
-    #         model_name = "test_trainable_rar_sample_iter_" + str(sampling_iter) + "_repeat_" + str(i)
-    #         lr = 0.0005
-    #         max_epoch = 100000
-    #         sample_num = 30
-    #         train(net=net, batch_size=batch_size, max_epoch=max_epoch, TOL=TOL,
-    #               data_path=data_path, training_sample_name=training_sample_name, test_sample_name=test_sample_name,
-    #               model_path=model_path, model_name=model_name, sample_num=sample_num, PhyLoss=PhyLoss, sampling_iter=sampling_iter,
-    #               device=None, lr=0.001, early_stopping_epoch=5000, is_loss_plot=False, rar_update_info=rar_update_info)
+    

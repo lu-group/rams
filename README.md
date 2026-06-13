@@ -50,6 +50,8 @@ If you use this data or code for academic research, you are encouraged to cite t
   author  = {Weihang Ouyang, Min Zhu, Wei Xiong, Si-Wei Liu, and Lu Lu},
   title   = {RAMS: Residual‐Based Adversarial‐Gradient Moving Sample Method for Scientific Machine Learning in Solving Partial Differential Equations},
   journal = {Advanced Intelligent Discovery},
+  volume  = {2},
+  pages   = {e202500214},
   year    = {2026},
   doi     = {http://doi.org/10.1002/aidi.202500214}
 }

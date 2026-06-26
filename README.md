@@ -1,7 +1,3 @@
-Keep the following line while the repository is under construction. Remove it after approval by Lu.
-
-> Under Construction
-
 # RAMS
 
 The data and code for the paper [RAMS: Residual‐Based Adversarial‐Gradient Moving Sample Method for Scientific Machine Learning in Solving Partial Differential Equations](http://doi.org/10.1002/aidi.202500214).
